@@ -2,6 +2,10 @@
 
 A lightweight browser extension for Google Chrome and Edge. It automates the extraction of email addresses from page content.
 
+## Demo
+
+![Demo](assets/demo.gif)
+
 ### Features
 
     **Smart Scanning**: Automatically detects email addresses in real-time, including those inside dynamic popups and hover-over tooltips.
@@ -45,9 +49,6 @@ After installation, click the extension's icon in your browser toolbar:
 
     Refresh your page (F5) to apply changes.
 
-## Demo
-
-![Demo](assets/demo.gif)
 
 # License
 

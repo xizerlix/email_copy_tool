@@ -1,5 +1,19 @@
+if (typeof chrome === "undefined") {
+    var chrome = browser;
+}
+const keepScreenAwake = document.getElementById('keepScreenAwake');
+const toggleKeepAwake = document.getElementById('toggleKeepAwake');
 const allowDuplicates = document.getElementById('allowDuplicates');
 const massCopy = document.getElementById('massCopy');
+
+function updateKeepAwakeButton(isEnabled) {
+  toggleKeepAwake.innerText = isEnabled ? 'Disable keep awake' : 'Enable keep awake';
+}
+
+function setKeepAwakeState(isEnabled) {
+  keepScreenAwake.checked = isEnabled;
+  updateKeepAwakeButton(isEnabled);
+}
 
 allowDuplicates.addEventListener('change', () => {
   if (allowDuplicates.checked) massCopy.checked = false;
@@ -7,6 +21,15 @@ allowDuplicates.addEventListener('change', () => {
 
 massCopy.addEventListener('change', () => {
   if (massCopy.checked) allowDuplicates.checked = false;
+});
+
+toggleKeepAwake.addEventListener('click', () => {
+  const nextState = !keepScreenAwake.checked;
+  setKeepAwakeState(nextState);
+
+  chrome.storage.sync.set({
+    keepScreenAwake: nextState
+  });
 });
 
 document.getElementById('save').addEventListener('click', () => {
@@ -21,6 +44,7 @@ document.getElementById('save').addEventListener('click', () => {
     .filter(d => d.length > 0);
 
   chrome.storage.sync.set({
+    keepScreenAwake: keepScreenAwake.checked,
     targetUrls,
     domains,
     allowDuplicates: allowDuplicates.checked,
@@ -38,7 +62,9 @@ document.getElementById('save').addEventListener('click', () => {
   });
 });
 
-chrome.storage.sync.get(['targetUrls', 'domains', 'allowDuplicates', 'massCopy'], (data) => {
+chrome.storage.sync.get(['keepScreenAwake', 'targetUrls', 'domains', 'allowDuplicates', 'massCopy'], (data) => {
+  const keepAwakeEnabled = data.keepScreenAwake || false;
+  setKeepAwakeState(keepAwakeEnabled);
   if (data.targetUrls) document.getElementById('targetUrl').value = data.targetUrls.join('\n');
   if (data.domains) document.getElementById('domains').value = data.domains.join('\n');
   allowDuplicates.checked = data.allowDuplicates || false;

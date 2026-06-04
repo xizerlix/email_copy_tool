@@ -1,6 +1,9 @@
+if (typeof chrome === "undefined") {
+  var chrome = browser;
+}
 let isProcessing = false;
 let lastToastTime = 0;
-let lastCopiedValue = ""; // Храним именно то, что скопировали последним В ЭТОЙ ВКЛАДКЕ
+let lastCopiedValue = ""; 
 
 function showToast(message) {
   const now = Date.now();

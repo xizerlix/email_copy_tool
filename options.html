@@ -56,6 +56,16 @@
       background: #cc0000;
     }
 
+    button.secondary {
+      background: #444;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    button.secondary:hover {
+      background: #222;
+    }
+
     .settings-group {
       margin-bottom: 20px;
     }
@@ -92,11 +102,29 @@
       cursor: pointer;
       user-select: none;
     }
+
+    .setting-note {
+      margin-top: -4px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.35;
+    }
   </style>
 </head>
 
 <body>
   <h3>Plugin settings</h3>
+
+  <div class="settings-group">
+    <div class="checkbox-wrapper">
+      <input type="checkbox" id="keepScreenAwake">
+      <label for="keepScreenAwake">Keep screen awake</label>
+    </div>
+    <div class="setting-note">Prevents the browser and system from going idle while the extension is enabled.</div>
+  </div>
+
+  <button id="toggleKeepAwake" class="secondary" type="button">Enable keep awake</button>
 
   <label class="title-label">Website URLs (new line or commas):</label>
   <textarea id="targetUrl" rows="3" placeholder="creatio-dev.com&#10;creatio-prod.com"></textarea>

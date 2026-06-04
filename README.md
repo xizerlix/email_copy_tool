@@ -1,3 +1,8 @@
+<p align="left">
+    <img src="https://cdn.simpleicons.org/googlechrome/4285F4" alt="Chrome" height="20">
+    <img src="https://cdn.simpleicons.org/microsoftedge/0078D7" alt="Edge" height="20">
+</p>
+
 ## Email Copy Tool
 
 A lightweight browser extension for Google Chrome and Edge. It automates the extraction of email addresses from page content.
@@ -17,6 +22,8 @@ A lightweight browser extension for Google Chrome and Edge. It automates the ext
 * **Bulk Copying:** When enabled, the plugin scans the entire page and collects all unique email addresses matching your domain filter
 
 * **Toast Notifications:** Displays a sleek, non-intrusive notification at the bottom of the screen upon successful copy.
+
+* **Keep Screen Awake:** A quick toggle in the popup prevents the browser and system from going idle while the extension is enabled.
 
 
 ## Installation (Developer Mode)
@@ -46,6 +53,8 @@ A lightweight browser extension for Google Chrome and Edge. It automates the ext
 **Domains:** Enter allowed email domains, separated by commas or new lines (e.g., @shwarma.com).
 
 Click **"Save Settings"**.
+
+If you need to keep the computer awake, open the popup and enable **Keep screen awake**.
 
 Refresh your page (F5) to apply changes.
 

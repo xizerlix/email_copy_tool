@@ -1,11 +1,12 @@
 <p align="left">
-    <img src="https://cdn.simpleicons.org/googlechrome/4285F4" alt="Chrome" height="20">
-    <img src="https://cdn.simpleicons.org/microsoftedge/0078D7" alt="Edge" height="20">
+    <img src="https://img.shields.io/badge/Chrome-4285F4?style=flat&logo=googlechrome&logoColor=white" alt="Chrome" height="20">
+    <img src="https://img.shields.io/badge/Edge-0078D7?style=flat&logo=microsoftedge&logoColor=white" alt="Edge" height="20">
+    <img src="https://img.shields.io/badge/Firefox-FF7139?style=flat&logo=firefox&logoColor=white" alt="Firefox" height="20">
 </p>
 
 ## Email Copy Tool
 
-A lightweight browser extension for Google Chrome and Edge. It automates the extraction of email addresses from page content.
+A lightweight browser extension for Google Chrome, Microsoft Edge, and Mozilla Firefox. It automates the extraction of email addresses from page content.
 
 ## Demo
 
@@ -25,6 +26,8 @@ A lightweight browser extension for Google Chrome and Edge. It automates the ext
 
 * **Keep Screen Awake:** A checkbox in the popup prevents the browser and system from going idle while the extension is enabled.
 
+* **Heart Toolbar Indicator:** The toolbar icon is always a heart — gray on regular sites, red (`#ff4444`, same as the Save button) on configured target sites. When **Keep screen awake** is enabled, the heart gently pulses: gray on other sites, red on target sites.
+
 
 ## Installation (Developer Mode)
 
@@ -34,25 +37,25 @@ A lightweight browser extension for Google Chrome and Edge. It automates the ext
 
 * Open your browser and navigate to:
 
-    Edge: edge://extensions/
+    Chrome: `chrome://extensions/`
 
-    Chrome: chrome://extensions/
+    Edge: `edge://extensions/`
 
-* Enable "Developer mode" in the sidebar/top corner.
+    Firefox: `about:debugging#/runtime/this-firefox`
 
-* Click "Load unpacked".
+* Enable **Developer mode** (Chrome/Edge) or use **Load Temporary Add-on** (Firefox).
 
-* Select the folder containing the extension files.
+* Click **Load unpacked** (Chrome/Edge) or **Load Temporary Add-on…** (Firefox) and select the extension folder.
 
 ## Configuration
 
 **After installation, click the extension's icon in your browser toolbar:**
 
-**Target URL:** Enter the base URLs, separated by commas or new lines   (e.g., creatio.example.com).
+**Target URL:** Enter the base URLs, separated by commas or new lines (e.g., `creatio.example.com`).
 
-**Domains:** Enter allowed email domains, separated by commas or new lines (e.g., @shwarma.com).
+**Domains:** Enter allowed email domains, separated by commas or new lines (e.g., `@shwarma.com`).
 
-Click **"Save Settings"**.
+Click **Save Settings**.
 
 If you need to keep the computer awake, open the popup and enable **Keep screen awake**. Turn it off by unchecking the box.
 

@@ -1,17 +1,17 @@
 if (typeof chrome === "undefined") {
     var chrome = browser;
 }
-const keepScreenAwake = document.getElementById('keepScreenAwake');
 const toggleKeepAwake = document.getElementById('toggleKeepAwake');
 const allowDuplicates = document.getElementById('allowDuplicates');
 const massCopy = document.getElementById('massCopy');
+let keepScreenAwakeEnabled = false;
 
 function updateKeepAwakeButton(isEnabled) {
   toggleKeepAwake.innerText = isEnabled ? 'Disable keep awake' : 'Enable keep awake';
 }
 
 function setKeepAwakeState(isEnabled) {
-  keepScreenAwake.checked = isEnabled;
+  keepScreenAwakeEnabled = isEnabled;
   updateKeepAwakeButton(isEnabled);
 }
 
@@ -24,7 +24,7 @@ massCopy.addEventListener('change', () => {
 });
 
 toggleKeepAwake.addEventListener('click', () => {
-  const nextState = !keepScreenAwake.checked;
+  const nextState = !keepScreenAwakeEnabled;
   setKeepAwakeState(nextState);
 
   chrome.storage.sync.set({
@@ -44,7 +44,7 @@ document.getElementById('save').addEventListener('click', () => {
     .filter(d => d.length > 0);
 
   chrome.storage.sync.set({
-    keepScreenAwake: keepScreenAwake.checked,
+    keepScreenAwake: keepScreenAwakeEnabled,
     targetUrls,
     domains,
     allowDuplicates: allowDuplicates.checked,

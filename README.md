@@ -23,7 +23,7 @@ A lightweight browser extension for Google Chrome and Edge. It automates the ext
 
 * **Toast Notifications:** Displays a sleek, non-intrusive notification at the bottom of the screen upon successful copy.
 
-* **Keep Screen Awake:** A single quick button in the popup prevents the browser and system from going idle while the extension is enabled.
+* **Keep Screen Awake:** A checkbox in the popup prevents the browser and system from going idle while the extension is enabled.
 
 
 ## Installation (Developer Mode)
@@ -54,7 +54,7 @@ A lightweight browser extension for Google Chrome and Edge. It automates the ext
 
 Click **"Save Settings"**.
 
-If you need to keep the computer awake, open the popup and press **Enable keep awake**. Press the same button again to turn it off.
+If you need to keep the computer awake, open the popup and enable **Keep screen awake**. Turn it off by unchecking the box.
 
 Refresh your page (F5) to apply changes.
 

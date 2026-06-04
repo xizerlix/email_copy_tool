@@ -86,6 +86,30 @@
       color: #666;
       line-height: 1.35;
     }
+
+    .checkbox-wrapper:has(input:not(:checked)) {
+      opacity: 0.7;
+    }
+
+    .checkbox-wrapper:has(input:checked) {
+      opacity: 1;
+    }
+
+    .checkbox-wrapper input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-wrapper label {
+      font-size: 14px;
+      margin-bottom: 0;
+      color: #333;
+      font-weight: normal;
+      cursor: pointer;
+      user-select: none;
+    }
   </style>
 </head>
 
@@ -93,10 +117,12 @@
   <h3>Plugin settings</h3>
 
   <div class="settings-group">
+    <div class="checkbox-wrapper">
+      <input type="checkbox" id="keepScreenAwake">
+      <label for="keepScreenAwake">Keep screen awake</label>
+    </div>
     <div class="setting-note">Prevents the browser and system from going idle while the extension is enabled.</div>
   </div>
-
-  <button id="toggleKeepAwake" class="secondary" type="button">Enable keep awake</button>
 
   <label class="title-label">Website URLs (new line or commas):</label>
   <textarea id="targetUrl" rows="3" placeholder="creatio-dev.com&#10;creatio-prod.com"></textarea>
